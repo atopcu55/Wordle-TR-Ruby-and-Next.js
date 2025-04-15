@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wordle-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  border-bottom: 1px solid #d3d6da;  
+  padding-bottom: 10px;            
+  width: 100%;
+  margin-top: 10px;
+}
+
+.message {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  z-index: 999;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 63px);
+  grid-gap: 5px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.square {
+  width: 63px;
+  height: 63px;
+  border: 2px solid #d3d6da;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: #1a1a1b;
+}
+
+#keyboard-container {
+  height: 190px;
+  width: 484px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+}
+
+.keyboard-row.middle-row {
+  padding: 0 15px;
+}
+
+.keyboard-row button {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  border: 0;
+  padding: 0;
+  height: 58px;
+  cursor: pointer;
+  background-color: #d3d6da;
+  color: #1a1a1b;
+  flex-grow: 1;
+  text-transform: uppercase;
+  margin-right: 6px;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.keyboard-row button.wide-button {
+  flex-grow: 1.5;
+}
