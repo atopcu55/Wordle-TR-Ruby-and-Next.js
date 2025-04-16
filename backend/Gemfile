@@ -7,5 +7,6 @@ gem 'uri'
 gem 'cgi'
 gem 'unicode_utils'
 gem 'sinatra'
-gem "sinatra-namespace"
+gem 'sinatra-namespace'
 gem 'sinatra-cross_origin'
+gem 'puma'
