@@ -6,8 +6,9 @@ require_relative 'wordle.rb'
 configure do
   enable :cross_origin
   set :bind, '0.0.0.0'
-  set :protection, false
+  set :protection, except: :host_authorization
 end
+
 
 
 before do
