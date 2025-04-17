@@ -5,7 +5,10 @@ require_relative 'wordle.rb'
 
 configure do
   enable :cross_origin
+  set :bind, '0.0.0.0'
+  set :protection, false
 end
+
 
 before do
   response.headers['Access-Control-Allow-Origin'] = '*'
