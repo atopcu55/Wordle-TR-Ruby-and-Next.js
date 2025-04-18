@@ -2,8 +2,6 @@ require 'sinatra'
 require "sinatra/namespace"
 require 'sinatra/cross_origin'
 require_relative 'wordle.rb'
-require 'rack/protection'
-use Rack::Protection, except: :host_authorization
 
 
 configure do
@@ -64,11 +62,6 @@ namespace '/api' do
     end
     json_response(res)
   end
-
-  get '/' do
-    'Merhaba, Wordle API çalışıyor!'
-  end
-  
 
   post '/start' do
     $wordle=Wordle.new
