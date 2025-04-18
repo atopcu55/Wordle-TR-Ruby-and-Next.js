@@ -65,6 +65,11 @@ namespace '/api' do
     json_response(res)
   end
 
+  get '/' do
+    'Merhaba, Wordle API çalışıyor!'
+  end
+  
+
   post '/start' do
     $wordle=Wordle.new
     return json_response({ message: "Oyun başladı", attempts: $wordle.attempts })
