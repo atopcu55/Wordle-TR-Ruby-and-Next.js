@@ -2,11 +2,13 @@ require 'sinatra'
 require "sinatra/namespace"
 require 'sinatra/cross_origin'
 require_relative 'wordle.rb'
+require 'rack/protection'
+use Rack::Protection, except: :host_authorization
+
 
 configure do
   enable :cross_origin
   set :bind, '0.0.0.0'
-  disable :protection
 end
 
 before do
