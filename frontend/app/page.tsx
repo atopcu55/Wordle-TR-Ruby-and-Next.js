@@ -48,7 +48,7 @@ export default function WordleGame() {
   // ----------------------
   const startGame = async () => {
     try {
-      const res = await fetch("http://localhost:4567/api/start", { method: "POST" });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/start`, { method: "POST" });
       const data = await res.json();
       setAttempts(data.attempts);
       setResponse(data.message);
@@ -150,7 +150,7 @@ export default function WordleGame() {
       setIsSubmitting(true);
 
       try {
-        const res = await fetch("http://localhost:4567/api/guess", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/guess`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ guess: lastWord.toUpperCase() }),
